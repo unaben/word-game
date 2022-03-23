@@ -33,7 +33,7 @@ function App() {
   function getRandomWords() {
     const options = {
       method: "GET",
-      url: "http://localhost:3030/results",
+      url: `${process.env.REACT_APP_FETCH_URL}/results`, 
       params: { level: selectedLevel, area: "sat" },
     };
 
