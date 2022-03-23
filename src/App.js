@@ -22,34 +22,28 @@ function App() {
   const [clicked, setClicked] = useState([]);
   const [score, setScore] = useState(0);
 
-  console.log({
-    selectedLevel: selectedLevel,
-    words: words,
-    correctAnswers: correctAnswers,
-    clicked: clicked,
-    score: score,
-  });
-
-  function getRandomWords() {
+const getRandomWords = () => {
     const options = {
       method: "GET",
-      url: `${process.env.REACT_APP_FETCH_URL}/results`, 
+      url: `${process.env.REACT_APP_FETCH_URL}/results`,
       params: { level: selectedLevel, area: "sat" },
     };
 
     axios
       .request(options)
-      .then(function (response) {
+      .then((response) => {
         console.log("RES data:", response.data);
         setwords(response.data);
       })
       .catch(function (error) {
         console.error(error);
       });
-  }
+  };
 
   useEffect(() => {
-    if (selectedLevel) getRandomWords();
+    if (selectedLevel) {
+      getRandomWords();
+    }
   }, [selectedLevel]);
 
   const checkAnswer = (option, optionIndex, selectedAnswer) => {
@@ -86,9 +80,6 @@ function App() {
             {levels.map((level) => (
               <option>{level.value}</option>
             ))}
-            {/* <option value="1">Level 1</option>
-            <option value="2">Level 2</option>
-            <option value="3">Level 3</option> */}
           </select>
         </div>
       )}
@@ -98,16 +89,13 @@ function App() {
           <h3>You scored: {score}</h3>
           <div className="questions">
             {words.quizlist.map((word, _wordIndex) => {
-            
               return (
                 <div key={_wordIndex} className="card-container">
                   {word.quiz.map((quiz, _index) => {
-                    
                     return <p key={_index}>{quiz}</p>;
                   })}
                   <div className="question-buttons">
                     {word.option.map((option, optionIndex) => {
-                      
                       return (
                         <div key={optionIndex} className="question-btn">
                           <button
