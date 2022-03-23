@@ -1,38 +1,79 @@
-.App {
-  text-align: center;
+*{
+    font-family: cursive;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+    background-color: darkcyan;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App{
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 100px;
+    padding-bottom: 100px ;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.level-selector h1, p{
+font-size: larger;
 }
 
-.App-link {
-  color: #61dafb;
+.level-selector{
+    background-color: wheat;
+    display: grid;
+    justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.question-section{
+    background-color: wheat;
+}
+
+.card-container{
+    background-color: darkcyan;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.question-buttons{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+button{
+    border-radius: 5px;
+    border: none;
+    margin: 5px;
+    padding: 10px;
+    background-color: darkcyan;
+    color: white;
+}
+
+button:disabled{
+    background-color: darkgrey;
+    color: darkolivegreen;
+}
+
+.questions{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+
+.question-section{
+    max-width: 1100px;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
+select{
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: darkslategray;
+    color: floralwhite;
 }
